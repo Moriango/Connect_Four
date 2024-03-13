@@ -51,6 +51,26 @@ class Game {
         }
     }
 
+    handleTouchStart(e) {
+        if (!this.ready) return;
+
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+        const width = document.documentElement.clientWidth;
+        const height = document.documentElement.clientHeight;
+
+        if (touchY > height / 3) {
+            console.log('down');
+            this.playToken();
+        } else if (touchX < width / 2) {
+            console.log('left');
+            this.activePlayer.activeToken.moveLeft();
+        } else {
+            console.log('right');
+            this.activePlayer.activeToken.moveRight(this.board.columns);
+        }
+    }
+
     /**
      * Finds Space object to drop Token into, drops Token
      */

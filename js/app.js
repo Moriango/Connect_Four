@@ -17,3 +17,7 @@ document.getElementById('begin-game').addEventListener('click', function(){
 document.addEventListener('keydown', function(event) {
     game.handleKeydown(event);
 })
+
+document.addEventListener('touchstart',function(event){
+    game.handleTouchStart(event);
+})
